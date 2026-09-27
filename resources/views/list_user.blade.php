@@ -1,28 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Daftar Pengguna</h1>
-
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nama</th>
-                <th>NPM</th>
-                <th>Kelas</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($users as $user)
-                <tr>
-                    <td>{{ $user->id }}</td>
-                    <td>{{ $user->nama }}</td>
-                    <td>{{ $user->npm }}</td>
-                    <td>{{ $user->nama_kelas }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-
-    <a href="{{ route('user.create') }}" class="btn btn-primary">Tambah User</a>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h3 class="card-title mb-4">📋 Daftar Pengguna</h3>
+            <x-user-table :users="$users" />
+            <a href="{{ route('user.create') }}" class="btn btn-success">+ Tambah User</a>
+        </div>
+    </div>
 @endsection
